@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
+import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private platform: Platform) {
+  constructor(private platform: Platform, private statusBar: StatusBar) {
     this.init();
   }
 
@@ -15,6 +16,7 @@ export class AppComponent {
     await this.platform.ready();
     console.log('hiding splash');
     (navigator as any).splashscreen.hide();
-    console.log('splash is hidden');
+    console.log('splash is hidden');    
+    //this.statusBar.overlaysWebView(false);
   }
 }
